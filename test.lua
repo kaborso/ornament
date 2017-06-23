@@ -1,4 +1,4 @@
-local lunatest = require('lunatest')
+local lunatest = require('lunatest.lunatest')
 local assert_true, assert_false = lunatest.assert_true, lunatest.assert_false
 local assert_equal, assert_not_equal = lunatest.assert_equal, lunatest.assert_not_equal
 local assert_match, assert_not_match = lunatest.assert_match, lunatest.assert_not_match
