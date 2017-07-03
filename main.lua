@@ -1,4 +1,5 @@
-local Canvas = require('canvas')
+local Canvas = require('src.canvas')
+local Palette = require('src.palette')
 
 function main(canvas)
   win = am.window{

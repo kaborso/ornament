@@ -1,3 +1,4 @@
+-- @module canvas
 function newCanvas(opts)
   local opts = opts or {}
   local self = {
