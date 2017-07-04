@@ -1,22 +1,27 @@
 local Canvas = require('src.canvas')
 local Palette = require('src.palette')
 
-function main(canvas)
+function main(canvas, palette)
   win = am.window{
       title = "ornament",
       width = canvas.width,
-      height = canvas.height,
+      height = canvas.height + palette.height
   }
 
   win.scene =
     am.group{
-      -- am.scale(canvas.xScale, canvas.yScale)
       am.scale(canvas.xScale, canvas.yScale)
       ^ am.sprite(canvas.string):tag"canvas"
       ,
-      am.translate(-(win.width * .4), -(win.height * .45))
-      ^ am.text(""):tag"mouse_coords"
+      am.translate((win.width * .4), (win.height * .45))
+      ^ am.text(""):tag"mouse_coords",
   }
+
+  for i, button in pairs(palette.buttons) do
+    win.scene:append(am.translate((button.x + -(win.width * .5)), -(-button.y + (button.height / 2)+ (win.height / 2)))
+    ^ am.scale(button.width, button.height)
+    ^ am.sprite(button.sprite):tag("btn_" .. button.color))
+  end
 
   win.scene:action(function(scene)
     local mouse_pos = win:mouse_position()
@@ -31,5 +36,4 @@ function main(canvas)
   end)
 end
 
-window = {width = 640, height = 480, xScale = 64, yScale = 48, size = 10}
-main(Canvas(window))
+main(Canvas(), Palette({height = 192}))
