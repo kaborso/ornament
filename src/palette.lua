@@ -20,11 +20,20 @@ function palette(opts)
       Button({color = v, col = i, row = 1})
   end
 
+  function update_color(color, coords)
+    for i, button in pairs(self.buttons) do
+      if button.check_collision(coords.x, coords.y) then
+        color = button.color
+      end
+    end
+    return color
+  end
 
   return {
     height = self.height,
     width = self.width,
-    buttons = self.buttons
+    buttons = self.buttons,
+    update_color = update_color
   }
 end
 

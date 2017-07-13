@@ -6,10 +6,11 @@
 - [ ] Take text input from form
 - [x] Paint sprite by clicking
   - [x] Set color
-  - [ ] Reset color
-- [ ] Change colors via color palette
+  - [X] Reset color
+- [X] Change colors via color palette
   - [x] Render palette
-  - [ ] Respond to clicks
+  - [X] Respond to clicks
+  - [ ] Show currently selected colors
 - [ ] Save image
 - [ ] Show text of sprite while painting
 - [ ] Change scaling and sizing options
